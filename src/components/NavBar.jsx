@@ -1,5 +1,7 @@
 
-export default function NavBar ({pokemonList, setPokemonIndex}) {
+import PropTypes from "prop-types";
+
+function NavBar ({pokemonList, setPokemonIndex}) {
 
   const handleClick=(pokemon, index)=>{pokemon.name!=="pikachu"?setPokemonIndex(index): alert("pika Pikachu!!") + setPokemonIndex(index)}
 
@@ -16,12 +18,9 @@ export default function NavBar ({pokemonList, setPokemonIndex}) {
   ); 
 }
 
+NavBar.propTypes = {
+  pokemonList: PropTypes.array.isRequired,
+  setPokemonIndex: PropTypes.func.isRequired,
+};
 
-
-
-    // return (
-    // <>
-    // {pokemonIndex>0?<button type="button" onClick={handleClickBackward}>Précédent</button> : <></>}
-    // {pokemonIndex<pokemonList.length-1?<button type="button" onClick={handleClickForward}>Suivant</button> : <></>}
-    // </>
-    // );
+export default NavBar;
